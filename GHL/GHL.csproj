@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F19E6E9-AF18-4F77-AF93-C76E30D3939B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GHL</RootNamespace>
+    <AssemblyName>GHL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="sfmlnet-audio-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Programiranje univerzalni paketi\SFML\SFML.Net-2.2-32-bit\SFML.Net-2.2\lib\sfmlnet-audio-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-graphics-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Programiranje univerzalni paketi\SFML\SFML.Net-2.2-32-bit\SFML.Net-2.2\lib\sfmlnet-graphics-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-system-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Programiranje univerzalni paketi\SFML\SFML.Net-2.2-32-bit\SFML.Net-2.2\lib\sfmlnet-system-2.dll</HintPath>
+    </Reference>
+    <Reference Include="sfmlnet-window-2, Version=2.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Programiranje univerzalni paketi\SFML\SFML.Net-2.2-32-bit\SFML.Net-2.2\lib\sfmlnet-window-2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\GUI\Button.cs" />
+    <Compile Include="Graphics\GUI\DropBox.cs" />
+    <Compile Include="Graphics\GUI\Slider.cs" />
+    <Compile Include="Graphics\GUI\TextBox.cs" />
+    <Compile Include="Graphics\Shapes\Circle.cs" />
+    <Compile Include="Graphics\Shapes\Line.cs" />
+    <Compile Include="Graphics\Shapes\Rectangle.cs" />
+    <Compile Include="Graphics\Shapes\Triangle.cs" />
+    <Compile Include="Helper\InputOutput\KeyboardManager.cs" />
+    <Compile Include="Helper\InputOutput\MessegeManager.cs" />
+    <Compile Include="Helper\InputOutput\MouseManager.cs" />
+    <Compile Include="Helper\Mathematics\MathHelper.cs" />
+    <Compile Include="Helper\SFML\ImageHelper.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\DLL-s\csfml-audio-2.dll" />
+    <Content Include="Resources\DLL-s\csfml-graphics-2.dll" />
+    <Content Include="Resources\DLL-s\csfml-network-2.dll" />
+    <Content Include="Resources\DLL-s\csfml-system-2.dll" />
+    <Content Include="Resources\DLL-s\csfml-window-2.dll" />
+    <Content Include="Resources\DLL-s\glfw3.dll" />
+    <Content Include="Resources\DLL-s\libsndfile-1.dll" />
+    <Content Include="Resources\DLL-s\openal32.dll" />
+    <Content Include="Resources\DLL-s\OpenTK.Compatibility.dll" />
+    <Content Include="Resources\DLL-s\OpenTK.dll" />
+    <Content Include="Resources\DLL-s\sfmlnet-audio-2.dll" />
+    <Content Include="Resources\DLL-s\sfmlnet-graphics-2.dll" />
+    <Content Include="Resources\DLL-s\sfmlnet-system-2.dll" />
+    <Content Include="Resources\DLL-s\sfmlnet-window-2.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy /y /f "$(ProjectDir)Resources/DLL-s/*.dll" "$(TargetDir)"</PreBuildEvent>
+  </PropertyGroup>
+</Project>
