@@ -6,85 +6,13 @@ namespace GHL.Helper.SFML
     public static class ImageHelper
     {
         private static readonly string ImgsPath = "Resources/Imgs/";
-        private static readonly Color[] CameraBackgroundColors = new Color[]
-        {
-            new Color(228, 234, 236),
-            new Color(215, 222, 226),
-            new Color(233, 241, 244),
-            new Color(209, 214, 219),
-            new Color(142, 155, 163),
-            new Color(149, 160, 166),
-            new Color(152, 163, 170),
-            new Color(185, 189, 193),
-            new Color(197, 201, 203),
-            new Color(166, 171, 174),
-            new Color(176, 180, 183),
-            new Color(179, 182, 184)
-        };
-        private static readonly Color[] DHT11BackgroundColors = new Color[]
-        {
-            new Color(252, 253, 255),
-            new Color(223, 222, 224),
-            new Color(223, 223, 221),
-            new Color(202, 207, 211),
-            new Color(223, 220, 221),
-            new Color(221, 222, 220),
-            new Color(222, 223, 223),
-            new Color(222, 220, 221),
-            new Color(220, 221, 224)
-        };
-        private static readonly Color[] FlameSensorBackgroundColors = new Color[]
-        {
-            new Color(252, 253, 255),
-            new Color(223, 222, 224),
-            new Color(223, 223, 221),
-            new Color(202, 207, 211),
-            new Color(223, 220, 221),
-            new Color(221, 222, 220),
-            new Color(222, 223, 223),
-            new Color(222, 220, 221),
-            new Color(220, 221, 224),
-            new Color(182, 188, 169),
-            new Color(223, 223, 224),
-            new Color(212, 217, 220)
-        };
 
-        public static Texture LoadImgNoBackground(string filename)
+        public static Texture LoadImgNoBackground(string filename, byte rangeOffElimination)
         {
             Image image = new Image(ImgsPath + filename);
             Color[] colorFilter;
-            byte range = 255;
-            switch (filename)
-            {
-                case "Camera.png":
-                    colorFilter = CameraBackgroundColors;
-                    range = 215;
-                    break;
-                case "HC-SR04.jpg":
-                    colorFilter = null;
-                    range = 254;
-                    break;
-                case "DHT11.png":
-                    colorFilter = DHT11BackgroundColors;
-                    range = 200;
-                    break;
-                case "FlameSensor.png":
-                    colorFilter = FlameSensorBackgroundColors;
-                    range = 200;
-                    break;
-                default:
-                    colorFilter = null;
-                    break;
-            }
-            if (colorFilter != null)
-            {
-                foreach (Color color in colorFilter)
-                {
-                    image.CreateMaskFromColor(color);
-                }
-            }
 
-            for (byte i = 255; i > range; i--)
+            for (byte i = 255; i > rangeOffElimination; i--)
             {
                 image.CreateMaskFromColor(new Color(i, i, i));
             }
