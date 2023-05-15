@@ -70,7 +70,6 @@
     <Compile Include="Helper\InputOutput\MouseManager.cs" />
     <Compile Include="Helper\Mathematics\MathHelper.cs" />
     <Compile Include="Helper\SFML\ImageHelper.cs" />
-    <Compile Include="Helper\StringHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
